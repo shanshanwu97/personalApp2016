@@ -1,11 +1,34 @@
 <template name="comments">
+	
+	{{#if currentUser}}
 	<h1>Comments</h1>
 	Add comments!!
 	<br>
 	<input type="text" class="js-user-comment">
 	<br>
+	<select class="js-user-rating">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+	</select>
+	<br>
 	<button class="js-submit-comment btn btn-lg btn-info">
 		Submit Comment
 	</button>
-	
+	{{else}}
+	<h2>You must log in to make comments!</h2>
+	{{/if}}
+	<hr>
+	<ul>
+	{{#each c in commentsdata}} <!--every element of a collection-->
+		{{> commentRow comment=c}}
+		
+	{{/each}}
+	</ul>
+</template>
+<template name="commentRow">
+	<li> {{comment.userEmail}} ({{comment.createdAt}}) : {{ comment.text}} Rating: {{comment.rating}}
+			<span class="js-delete-comment glyphicon glyphicon-remove" aria-hidden="true"></span></li> <!--span like div fits in part of the line-->
 </template>
