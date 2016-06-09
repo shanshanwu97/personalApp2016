@@ -5,10 +5,11 @@
   			<li role="presentation"><a href="{{pathFor 'about'}}">About</a></li>
   			<li role="presentation"><a href="{{pathFor 'comments'}}">Comments</a></li>
   			<li>
-  				{{> loginButtons}}
+  				{{> loginButtons}} <!--put that template on every page-->
   			</li>
 		</ul>
-		
+
 	{{> yield}}
+
 	</div>
 </template>
