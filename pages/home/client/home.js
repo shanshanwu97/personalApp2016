@@ -1,4 +1,6 @@
-
+Template.home.helpers({
+	searchdata: function(){return DestSearched.find({}, {sort:{searches:-1}});}
+})
 Template.home.events({
 	"click .js-gogo": function(event){
 		event.preventDefault();

@@ -1,8 +1,24 @@
 <template name="itdisplay">
-	<!-- <ul>
+	<ul>
 		{{#each t in trips}}
-		<li>{{t.createdBy}} made a trip to {{t.destination}}</li>
+
+		<li>
+			<div class="row">
+		<div class="col-md-12  col-md-offset-0  bg-info">
+			<h1>{{t.createdBy}}</h1>
+			<h2><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{t.destination}}</h2>
+			<div class="panel panel-default">
+  				<div class="panel-body">
+    			<h4><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Arrival: {{t.arrival}}</h4>
+    			<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Companions: {{t.amountOfTraveler}}</h4>
+  				<h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Approximate Expense: {{t.expenses}}</h4>
+  				</div>
+			</div>
+			<h4> Description: {{t.description}}</h4>
+			<br>
+		</div>
+	</div>
+		</li>
 		{{/each}}
-	</ul> -->
-	hi
+	</ul>
 </template>
