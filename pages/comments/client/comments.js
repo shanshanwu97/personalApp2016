@@ -36,6 +36,7 @@ Template.comments.events({
 	"click .js-delete-comment ":function(event){
 		console.log("clicked on the x"); //debug
 		console.dir(this);
+		window.alert("You are about to delete this comment!");
 		Comments.remove(this.comment._id);  //callback->this <--removes object created
 	}
 })

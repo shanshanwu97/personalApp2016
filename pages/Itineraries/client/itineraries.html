@@ -1,0 +1,80 @@
+<template name="itineraries">
+	<div class="page-header">
+		<h1>Itineraries</h1>
+	</div>
+	<h2>Share your experience!</h2>
+	<form>
+	 	<fieldset class="form-group">
+	   		<label for="userid">User ID</label>
+	    	<input type="user_id" class="form-control js-name" placeholder="Enter UserID">
+	    	<small class="text-muted">Do you want to post as anonymous.
+	      		<input type="radio" checked>Yes
+	      		<input type="radio" >No
+	    	</small>
+	  	</fieldset>
+	  	<fieldset class="form-group">
+	    	<label for="destination">Destination</label>
+	    	<input type="destination" class="form-control js-desti"  placeholder="Destination">
+	  	</fieldset>
+	  	<fieldset class="form-group">
+	   		<label for="arrival">Arrival Date</label>
+	    	<input type="arrival" class="form-control js-arrive"  placeholder="mm/dd/yyyy">
+	 	</fieldset>
+	  	<fieldset class="form-group">
+	    	<label for="depart">Departure Date</label>
+	    	<input type="departure" class="form-control js-depart"  placeholder="mm/dd/yyyy">
+	  	</fieldset>
+	  	<fieldset class="form-group">
+	    	<label for="travellers">Amount of Travellers</label>
+	    	<input type="travel" class="form-control js-trv"  placeholder="Enter in digits">
+	  	</fieldset>
+	  	<fieldset class="form-group">
+	    	<label for="expense">Approximate Expense</label>
+	    	<input type="expense" class="form-control js-ex"  placeholder="ex. $500 - (includes airfare, transportaion, food, lodging,etc)">
+	  	</fieldset>
+	 	<fieldset class="form-group">
+	    	<label for="description">Description</label>
+	    	<textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+	  	</fieldset>
+	  	<fieldset class="form-group">
+	    	<label for="exampleInputFile">Insert Image/File</label>
+	    	<input type="file" class="form-control-file" id="exampleInputFile"><small class="text-muted">File size must not exceed 5MB.</small><br>
+	    	<label for="description">Add Description for the File</label>
+	    	<textarea class="form-control js-desc" id="exampleTextarea" rows="3"></textarea>
+	    	<div class="col-xs-1">
+            	<button type="button" class="btn btn-default addButton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="fa fa-plus"></i></button>
+        	</div>
+	    	
+	 	 </fieldset>
+	  <button class="js-submit btn btn-info">Submit</button> 
+	</form>
+	<!-- Name: <input type="text" class="js-name"><br>
+	Destination:<input type="text" class="js-desti"><br>
+	Arriving:<input type="text" class="js-arrive"><br>
+	Departing:<input type="text" class="js-depart"><br>
+	Amount of travellers:<input type="text" class="js-trv"><br>
+	Expenses:<input type="text" class="js-ex"><br>
+	<button class="js-submit btn btn-info">Submit</button> -->
+	<ul>
+		{{#each t in trips}}
+
+		<li>
+			<div class="row">
+		<div class="col-md-12  col-md-offset-0  bg-info">
+			<h1>{{t.createdBy}}</h1>
+			<h2><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{t.destination}}</h2>
+			<div class="panel panel-default">
+  				<div class="panel-body">
+    			<h4><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Arrival: {{t.arrival}}</h4>
+    			<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Companions: {{t.amountOfTraveler}}</h4>
+  				<h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Approximate Expense: {{t.expenses}}</h4>
+  				</div>
+			</div>
+			<h4> Description: {{t.description}}</h4>
+			<br>
+		</div>
+	</div>
+		</li>
+		{{/each}}
+	</ul>
+</template>

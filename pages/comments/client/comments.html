@@ -1,11 +1,12 @@
 <template name="comments">
 	
 	{{#if currentUser}}
-	<h1>Comments</h1>
-	Add comments!!
+	<div class="page-header">
+		<h1>Comments</h1>
+	</div>
+	Add comments and rating!!
 	<br>
 	<input type="text" class="js-user-comment">
-	<br>
 	<select class="js-user-rating">
 		<option>1</option>
 		<option>2</option>
@@ -13,8 +14,8 @@
 		<option>4</option>
 		<option>5</option>
 	</select>
-	<br>
-	<button class="js-submit-comment btn btn-lg btn-info">
+	<br> <br>
+	<button class="js-submit-comment btn btn-info">
 		Submit Comment
 	</button>
 	{{else}}
@@ -28,7 +29,7 @@
 	{{/each}}
 	</ul>
 </template>
-<template name="commentRow">
+<template name="commentRow"> <!--why was necessary to create another template for it-->
 	<li> {{comment.userEmail}} ({{comment.createdAt}}) : {{ comment.text}} Rating: {{comment.rating}}
 			<span class="js-delete-comment glyphicon glyphicon-remove" aria-hidden="true"></span></li> <!--span like div fits in part of the line-->
 </template>
