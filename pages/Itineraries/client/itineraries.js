@@ -15,8 +15,9 @@ Template.itineraries.events({
 		const amount = $(".js-trv").val();
 		const expenses = $(".js-ex").val();
 		const desc= $(".js-desc").val();
+		const titleOf=$(".js-title").val();
 		const trip=
-		{createdBy:name, destination:dest, arrival: arrive, amountOfTraveler: amount, expenses: expenses, description: desc
+		{createdBy:name, title: titleOf, destination:dest, arrival: arrive, amountOfTraveler: amount, expenses: expenses, description: desc
 
 		}
 		console.dir(trip);
