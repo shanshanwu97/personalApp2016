@@ -25,3 +25,6 @@ ian:accounts-ui-bootstrap-3
 accounts-password
 accounts-google
 reactive-dict
+tomi:upload-server
+tomi:upload-jquery
+session

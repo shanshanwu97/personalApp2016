@@ -1,25 +1,26 @@
 <template name="itdisplay">
 	<ul>
 		{{#each t in trips}}
-
-		<li>
+		<li><a href="/showtrip/{{t._id}}">{{t.title}} by {{t.createdBy}}</a></li>
+		
+		{{/each}}
+	</ul>
+</template>
+<template name = "showTrip">
 			<div class="row">
 		<div class="col-md-12  col-md-offset-0  bg-info">
-			<h1>{{t.title}}</h1>
-			<h4>{{t.createdBy}}</h4>
-			<h3><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{t.destination}}</h3>
+			<h1>{{title}}</h1>
+			<h4>{{createdBy}}</h4>
+			<h3><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{destination}}</h3>
 			<div class="panel panel-default">
   				<div class="panel-body">
-    			<h4><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Arrival: {{t.arrival}}</h4>
-    			<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Companions: {{t.amountOfTraveler}}</h4>
-  				<h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Approximate Expense: {{t.expenses}}</h4>
+    			<h4><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Arrival: {{arrival}}</h4>
+    			<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Companions: {{amountOfTraveler}}</h4>
+  				<h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Approximate Expense: {{expenses}}</h4>
   				</div>
 			</div>
-			<h4> Description: {{t.description}}</h4>
+			<h4> Description: {{description}}</h4>
 			<br>
 		</div>
 	</div>
-		</li>
-		{{/each}}
-	</ul>
 </template>

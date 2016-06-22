@@ -18,9 +18,25 @@
   			</div><!-- /.col-lg-6 -->
 		</div><!-- /.row -->
 
+    <!-- <ul>
+    {{#each r in resultData}}
+    <li><a href="/showsearch/{{r._id}}">{{r.title}} by {{r.createdBy}}</a></li>
+    
+    {{/each}}
+  </ul> -->
+
+    <div class={{theColor}}>
+    <select class="js-color">
+      <option>bg-info</option>
+      <option>bg-warning</option>
+    </select>
     Color: {{theColor}}<br>
     Counter:{{theCounter}}<br>
     <button class="js-pusher">PUsh me</button>
+    <br>
+  </div>
+
+
 		{{#if currentUser}}
 			Congratulations for getting logged in!!
 		{{else}}
@@ -122,4 +138,22 @@
  		<source src="audio/hi.mp3" type="audio/mpeg">
 	</audio> -->
 </div>
+</template>
+<template name = "showSearch">
+      <div class="row">
+    <div class="col-md-12  col-md-offset-0  bg-info">
+      <h1>{{title}}</h1>
+      <h4>{{createdBy}}</h4>
+      <h3><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{destination}}</h3>
+      <div class="panel panel-default">
+          <div class="panel-body">
+          <h4><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Arrival: {{arrival}}</h4>
+          <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Companions: {{amountOfTraveler}}</h4>
+          <h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Approximate Expense: {{expenses}}</h4>
+          </div>
+      </div>
+      <h4> Description: {{description}}</h4>
+      <br>
+    </div>
+  </div>
 </template>

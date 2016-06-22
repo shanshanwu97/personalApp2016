@@ -1,10 +1,19 @@
+Session.set("results", "0");
 Template.home.helpers({
-	searchdata: function(){return DestSearched.find({}, {sort:{searches:-1}});}
+	searchdata: function(){return DestSearched.find({}, {sort:{searches:-1}});},
+	// resultData: function(){
+	// 	let loc = Session.get("results");
+	// 	return Trips.find({destination: loc},{sort:{datecreated: -1}});
+	// },
 })
 Template.home.events({
 	"click .js-gogo": function(event){
 		event.preventDefault();
 		const destination=$(".js-loca").val().toLowerCase();
+		
+		Router.go('searchresults');
+		Session.set("results", destination);
+		// Meteor.call("search", destination);
 		if(DestSearched.find({location: destination}).count()==0){
 			console.dir("New Destination added to database");
 			const search_obj=
@@ -21,6 +30,9 @@ Template.home.events({
 		
 	}
 })
+// Tempplate.home.helpers({
+// 	resultsdata: function(){return Dest}
+// })
 Template.home.onCreated(function(){
 	this.state= new ReactiveDict();
 	this.state.setDefault({
@@ -28,6 +40,8 @@ Template.home.onCreated(function(){
 		counter: 0,
 
 	});
+	console.log("creating the template");
+	console.dir(this.state);
 });
 Template.home.helpers({
 	theColor: function(){
@@ -38,4 +52,15 @@ Template.home.helpers({
 		const instance= Template.instance();
 		return instance.state.get("counter");
 	}
+})
+Template.home.events({
+	"change .js-color": function(event, instance){
+		console.log($(".js-color").val());
+		const newColor= instance.$(".js-color").val();
+		instance.state.set("color", newColor);
+	},
+	"click .js-pusher":function(event, instance){
+		const newCounter=instance.state.get("counter");
+		instance.state.set("counter", newCounter+1);
+	},
 })
