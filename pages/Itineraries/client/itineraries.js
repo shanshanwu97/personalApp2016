@@ -22,6 +22,7 @@ Template.itineraries.events({
 		}
 		console.dir(trip);
 		Trips.insert(trip);
+		Router.go('selfdisplay');
 	
 	}
 })
