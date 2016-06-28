@@ -1,6 +1,19 @@
 <template name="searchresults">
 	
   <h1>Search Results</h1>
+  <div class={{refineSearch}}>
+    Budget:
+    <select class="js-refine">
+      <option>Show All</option>
+      <option>Under $500</option>
+      <option>Under $1000</option>
+      <option>Under $2000</option>
+      <option>Under $3000</option>
+      <option>Under $4000</option>
+      <option>Under $5000</option>
+      <option>Over $5000</option>
+    </select>
+  </div>
   <ul>
     {{#each r in resultData}}
     <li>

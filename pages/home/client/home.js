@@ -8,31 +8,27 @@ Template.home.helpers({
 })
 Template.home.events({
 	"click .js-gogo": function(event){
-		event.preventDefault();
+		// event.preventDefault();
 		const destination=$(".js-loca").val().toLowerCase();
-		
-		Router.go('searchresults');
 		Session.set("results", destination);
-		// Meteor.call("search", destination);
-		if(DestSearched.find({location: destination}).count()==0){
-			console.dir("New Destination added to database");
-			const search_obj=
-			{location: destination,
-			searches: 1
-			}
-			DestSearched.insert(search_obj);
+		// // Meteor.call("search", destination);
+		// if(DestSearched.find({location: destination}).count()==0){
+		// 	console.dir("New Destination added to database");
+		// 	const search_obj=
+		// 	{location: destination,
+		// 	searches: 1
+		// 	}
+		// 	DestSearched.insert(search_obj);
 			
-		}else{
-			console.dir("Destination search incremented");
-			DestSearched.update({_id:DestSearched.findOne({location:destination})._id},{$inc:{searches: 1}});
-		}
-		
+		// }else{
+		// 	console.dir("Destination search incremented");
+		// 	DestSearched.update({_id:DestSearched.findOne({location:destination})._id},{$inc:{searches: 1}});
+		// }
+		Meteor.call("tosearch", destination);
+		Router.go('searchresults');
 		
 	}
 })
-// Tempplate.home.helpers({
-// 	resultsdata: function(){return Dest}
-// })
 Template.home.onCreated(function(){
 	this.state= new ReactiveDict();
 	this.state.setDefault({
