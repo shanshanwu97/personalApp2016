@@ -29,3 +29,5 @@ tomi:upload-jquery
 session
 http
 underscore
+froala:editor
+froala:editor-reactive

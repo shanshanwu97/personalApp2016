@@ -15,19 +15,23 @@ Template.itineraries.events({
 		const arrive = $(".js-arrive").val();
 		const depart = $(".js-depart").val();
 		const amount = $(".js-trv").val();
-		const expenses = Number($(".js-ex").val());
-		const desc= $(".js-descript").val();
-		const titleOf=$(".js-title").val();
-		const trip=
-		{createdBy:name, datecreated: new Date(), title: titleOf, destination:dest, arrival: arrive, amountOfTraveler: amount, expenses: expenses, description: desc
+		if (!isNumeric($(".js-ex").val())){
+			alert("Please enter a valid number!");
+		}else{
+			const expenses = Number($(".js-ex").val());
+			const desc= $(".js-descript").val();
+			const titleOf=$(".js-title").val();
+			const trip=
+			{createdBy:name, datecreated: new Date(), title: titleOf, destination:dest, arrival: arrive, amountOfTraveler: amount, expenses: expenses, description: desc
 
+			}
+			Session.set("userinput",trip);
+			Meteor.call("insertTrip", trip);
+			Router.go('itdisplay');
 		}
-		Session.set("userinput",trip);
-
-		//console.dir(trip);
-		Meteor.call("insertTrip", trip);
-		// Trips.insert(trip);
-		Router.go('itdisplay');
-	
 	}
+
 })
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
