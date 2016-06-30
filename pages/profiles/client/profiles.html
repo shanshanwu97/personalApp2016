@@ -1,20 +1,23 @@
 <template name="profiles">
 	<div class="page-header">
 		<h1>Profiles</h1>
-		
 	</div>
 	{{#if currentUser}}
 		<ol>
     		{{#each p in userprofiles}}
       			<li>
-      				Meteor UserID: {{p.user}} <br>
-      				First Name: {{p.firstname}}<br>
-      				Last Name: {{p.lastname}}<br>
-      				Nickname: {{p.nickname}}<br>
-      				Email: {{p.email}}<br>
-      				Birth Year: {{p.birthyear}}<br>		
+      				<div class="panel">
+	      				Meteor UserID: {{p.user}} <br>
+	      				First Name: {{p.firstname}}<br>
+	      				Last Name: {{p.lastname}}<br>
+	      				Nickname: {{p.nickname}}<br>
+	      				Email: {{p.email}}<br>
+	      				Birth Year: {{p.birthyear}}<br>	
+	      				<br>
+	      			</div>
+	      				
       			</li>
-      			<br>
+      			
    			{{/each}}
   		</ol>
 
