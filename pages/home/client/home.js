@@ -1,10 +1,7 @@
 Session.set("results", "0");
 Template.home.helpers({
 	searchdata: function(){return DestSearched.find({}, {sort:{searches:-1}});},
-	// resultData: function(){
-	// 	let loc = Session.get("results");
-	// 	return Trips.find({destination: loc},{sort:{datecreated: -1}});
-	// },
+	msg:function(){return Settings.findOne({user:Meteor.userId()})},
 })
 Template.home.events({
 	"click .js-gogo": function(event){
