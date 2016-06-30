@@ -1,6 +1,6 @@
 Template.settings.helpers({
 	settings:function(){
-		return Settings.findOne({user:Meteor.userId()});
+		return Settings.findOne();
 	}
 })
 
@@ -9,8 +9,9 @@ Template.settings.events({
 		event.preventDefault();
 		console.log("hey u clicked");
 		const msg = $(".js-greeting").val();
+		const pre = $(".js-prefer").val();
 		const setting=
-			{user:Meteor.userId(), greetingmsg:msg};			
+			{user:Meteor.userId(), greetingmsg:msg, preferloc:pre};			
 			Meteor.call("submitsettings", setting);
 
 		

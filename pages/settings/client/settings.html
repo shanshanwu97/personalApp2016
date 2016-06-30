@@ -9,13 +9,22 @@
 	    		<input type="greeting" class="form-control js-greeting" placeholder="Enter Greeting Message">
 	    	
 	  		</fieldset>
+	  		<fieldset class="form-group">
+	   			<label for="prefer">Preferred Location</label>
+	    		<input type="prefer" class="form-control js-prefer" placeholder="Only fill this location if you want one specific location to be on your homepage">
+	    	
+	  		</fieldset>
 	  <!-- 	<input type="checkbox"  name="questions" unchecked> Generic Welcome Message -->
 	  	
 	  		<button class="js-submit btn btn-info">Submit</button> 
 		</form>
 		Current Greeting Message for you:
 		<br>
-		{{settings.greetingmsg}}	
+		{{settings.greetingmsg}}
+		<br>
+		Preferred Location:
+		<br>
+		{{settings.preferloc}}	
 	{{else}}
 		<h4>Please log in to change settings!!!</h4>
 	{{/if}}
