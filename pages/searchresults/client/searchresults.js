@@ -39,6 +39,20 @@ Template.searchresults.events({
 		instance.state.set("budget", refineResult);
 		Session.set("budget", refineResult);
 	},
+		"click .js-addfav ":function(event){
+		console.log("clicked on the +"); //debug
+		console.dir(this);
+		window.alert("Added to favorite!");
+		var blog= Trips.findOne({_id: this.fav._id});
+		console.dir(blog);
+		const fav =
+		{user: Meteor.userId(),
+		addedAt: new Date(),
+		favadded: blog
+		}
+		Meteor.call("addFav", fav);
+		//Comments.remove(this.comment._id);  //callback->this <--removes object created
+	},
 
 })
 Template.searchresults.helpers({

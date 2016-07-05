@@ -1,1 +1,2 @@
-Meteor.subscribe("theTrips", "{}");
+Meteor.subscribe("theTrips");
+Meteor.subscribe("")

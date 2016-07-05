@@ -1,0 +1,1 @@
+Meteor.subscribe("theTrips", "los angeles");

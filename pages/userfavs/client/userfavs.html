@@ -1,0 +1,48 @@
+<template name="userfavs">
+	<ul>
+    {{#each r in userfavorites}}
+    <!-- <li>
+		<div class="panel panel-success">
+			<div class="panel-body">
+    			<a href="/showsearch/{{r._id}}"><h3>{{r.title}}</h3></a>
+    		</div>
+    		 <div class="panel-footer">by {{r.createdBy}} on {{r.datecreated}}
+    		 </div>
+    	</div>
+    </li> --> 
+
+        {{> removeFav fav=r.favadded user=r._id}}
+             
+    {{/each}}
+  </ul>
+</template>
+<template name="removeFav">
+    <li>
+    <div class="panel panel-success">
+      <div class="panel-body">
+          <a href="/showfavs/{{fav._id}}"><h3>{{fav.title}}</h3></a>
+		<span class="js-deletefav glyphicon glyphicon-remove" aria-hidden="true"></span> 
+        </div>
+         <div class="panel-footer">by {{fav.createdBy}} on {{fav.datecreated}}
+         </div>
+      </div>
+    </li>
+</template>
+<template name = "showFavs">
+      <div class="row">
+    <div class="col-md-12  col-md-offset-0  bg-info">
+      <h1>{{title}}</h1>
+      <h4>{{createdBy}}</h4>
+      <h3><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{destination}}</h3>
+      <div class="panel panel-default">
+          <div class="panel-body">
+          <h4><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Arrival: {{arrival}}</h4>
+          <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Companions: {{amountOfTraveler}}</h4>
+          <h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Approximate Expense: {{expenses}}</h4>
+          </div>
+      </div>
+      <h4> Description: {{description}}</h4>
+      <br>
+    </div>
+  </div>
+</template>

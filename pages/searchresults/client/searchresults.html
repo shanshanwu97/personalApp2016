@@ -16,7 +16,7 @@
   </div>
   <ul>
     {{#each r in resultData}}
-    <li>
+    <!-- <li>
 		<div class="panel panel-success">
 			<div class="panel-body">
     			<a href="/showsearch/{{r._id}}"><h3>{{r.title}}</h3></a>
@@ -24,8 +24,21 @@
     		 <div class="panel-footer">by {{r.createdBy}} on {{r.datecreated}}
     		 </div>
     	</div>
-    </li>
+    </li> -->
+        {{> addFav fav=r}}
     
     {{/each}}
   </ul>
-  </template>
+</template>
+<template name="addFav">
+    <li>
+    <div class="panel panel-success">
+      <div class="panel-body">
+          <a href="/showsearch/{{fav._id}}"><h3>{{fav.title}}</h3></a>
+          <span class="js-addfav glyphicon glyphicon-plus" aria-hidden="true"></span> 
+        </div>
+         <div class="panel-footer">by {{fav.createdBy}} on {{fav.datecreated}}
+         </div>
+      </div>
+    </li>
+</template>
