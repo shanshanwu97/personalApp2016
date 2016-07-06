@@ -6,25 +6,36 @@
 		{{#if currentUser}}
 			<form>
 			 	<fieldset class="form-group">
-			   		<label for="firstname">First Name:</label>
-			    	<input type="firstname" class="form-control js-fname">
-			  	</fieldset>
-			  	<fieldset class="form-group">
-			    	<label for="lastname">Last Name: </label>
-			    	<input type="lastname" class="form-control js-lname">
+			   		<label for="firstname">Name:</label>
+			    	<input type="firstname" class="form-control js-name" id="prof" placeholder ="First Name, Last Name">
 			  	</fieldset>
 			  	<fieldset class="form-group">
 			    	<label for="email">Email: </label>
-			    	<input type="email" class="form-control js-email">
+			    	<input type="email" class="form-control js-email" id="profem">
 			  	</fieldset>
 			  	<fieldset class="form-group">
 			   		<label for="location">Current Location:</label>
-			    	<input type="location" class="form-control js-loc"  placeholder="city, state, country">
+			    	<input type="location" class="form-control js-loc"  placeholder="city, state, country" id="profloc">
 			 	</fieldset>
-			  <button class="js-submitinfo btn btn-info">Submit</button> 
+			  <button class="js-submitinfo btn btn-info" id="submitbut">Submit</button> 
 			</form>
 		{{else}}
 		Please log in to create profile!
 		{{/if}}
 	</div>
+</template>
+<template name= "profiledisplay">
+	<div class="container">
+		<div class="page-header">
+			<h1>My Profile</h1>
+		</div>
+		Name: {{profile.name}}<span class='glyphicon glyphicon-pencil js-editname' aria-hidden='true'></span><br>
+		Email: {{profile.email}} <span class='glyphicon glyphicon-pencil js-editemail' aria-hidden='true'></span><br>
+		Location: {{profile.location}} <span class='glyphicon glyphicon-pencil js-editloc' aria-hidden='true'></span><br>
+		 <button class="js-submitedit btn btn-info" >Submit</button> 
+ 		<br>
+
+	</div>
+</template>
+<template name="editprofile">
 </template>
