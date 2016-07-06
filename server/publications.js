@@ -42,6 +42,20 @@ Meteor.publish("theMsgBuddies", function(uid){
 		this.ready();
 	}
 })
+Meteor.publish("theFriends", function(){
+	if (this.userId){
+		return Friends.find({user:this.userId});
+	}else{
+		this.ready();
+	}
+})
+Meteor.publish("theProfiles", function(){
+	if (this.userId){
+		return UserProfiles.find({user:this.userId});
+	}else{
+		this.ready();
+	}
+})
 
 
 

@@ -1,0 +1,30 @@
+<template name="userprofiles">
+	<div class="container">
+		<div class="page-header">
+			<h1>My Profile</h1>
+		</div>
+		{{#if currentUser}}
+			<form>
+			 	<fieldset class="form-group">
+			   		<label for="firstname">First Name:</label>
+			    	<input type="firstname" class="form-control js-fname">
+			  	</fieldset>
+			  	<fieldset class="form-group">
+			    	<label for="lastname">Last Name: </label>
+			    	<input type="lastname" class="form-control js-lname">
+			  	</fieldset>
+			  	<fieldset class="form-group">
+			    	<label for="email">Email: </label>
+			    	<input type="email" class="form-control js-email">
+			  	</fieldset>
+			  	<fieldset class="form-group">
+			   		<label for="location">Current Location:</label>
+			    	<input type="location" class="form-control js-loc"  placeholder="city, state, country">
+			 	</fieldset>
+			  <button class="js-submitinfo btn btn-info">Submit</button> 
+			</form>
+		{{else}}
+		Please log in to create profile!
+		{{/if}}
+	</div>
+</template>

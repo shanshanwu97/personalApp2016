@@ -1,20 +1,14 @@
 <template name="userfavs">
+  <div class="container">
 	<ul>
+    <div>
     {{#each r in userfavorites}}
-    <!-- <li>
-		<div class="panel panel-success">
-			<div class="panel-body">
-    			<a href="/showsearch/{{r._id}}"><h3>{{r.title}}</h3></a>
-    		</div>
-    		 <div class="panel-footer">by {{r.createdBy}} on {{r.datecreated}}
-    		 </div>
-    	</div>
-    </li> --> 
-
         {{> removeFav fav=r.favadded user=r._id}}
              
     {{/each}}
+  </div>
   </ul>
+</div>
 </template>
 <template name="removeFav">
     <li>

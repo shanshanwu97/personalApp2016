@@ -1,5 +1,5 @@
 <template name="searchresults">
-	
+	<div class= "container">
   <h1>Search Results</h1>
   <div class={{refineSearch}}>
     Budget:
@@ -16,29 +16,24 @@
   </div>
   <ul>
     {{#each r in resultData}}
-    <!-- <li>
-		<div class="panel panel-success">
-			<div class="panel-body">
-    			<a href="/showsearch/{{r._id}}"><h3>{{r.title}}</h3></a>
-    		</div>
-    		 <div class="panel-footer">by {{r.createdBy}} on {{r.datecreated}}
-    		 </div>
-    	</div>
-    </li> -->
-        {{> addFav fav=r}}
-    
+      <li>
+        <div class="panel panel-success">
+         
+         {{> addFav fav=r}}
+         </div>
+  </li>
     {{/each}}
   </ul>
+</div>
 </template>
 <template name="addFav">
-    <li>
-    <div class="panel panel-success">
-      <div class="panel-body">
+  <div class="panel-body">
+        <div>
           <a href="/showsearch/{{fav._id}}"><h3>{{fav.title}}</h3></a>
-          <span class="js-addfav glyphicon glyphicon-plus" aria-hidden="true"></span> 
+          <p align="right"><span class="js-addfav glyphicon glyphicon-heart-empty" aria-hidden="true"></span>Add to Favorite</p>
         </div>
-         <div class="panel-footer">by {{fav.createdBy}} on {{fav.datecreated}}
-         </div>
       </div>
-    </li>
+      <div class="panel-footer">by {{fav.createdBy}} on {{fav.datecreated}}
+      </div>
+    
 </template>
