@@ -18,13 +18,27 @@
 	  	
 	  		<button class="js-submit btn btn-info">Submit</button> 
 		</form>
+		<form>
+	 		<fieldset class="form-group">
+	   			<label for="username">Username: </label>
+	    		<input type="username" class="form-control js-username" placeholder="Can only choose once!">
+	    		<button class="js-check btn btn-success">Check Availability</button> 
+	  		</fieldset>
+	  	
+	  		<button class="js-submitname btn btn-info">Submit Username</button> Can only choose once!
+		</form>
 		Current Greeting Message for you:
 		<br>
 		{{settings.greetingmsg}}
 		<br>
 		Preferred Location:
 		<br>
-		{{settings.preferloc}}	
+		{{settings.preferloc}}
+		<br>
+		Your Username: 
+		<br>
+		{{users.userName}}
+
 	{{else}}
 		<h4>Please log in to change settings!!!</h4>
 	{{/if}}

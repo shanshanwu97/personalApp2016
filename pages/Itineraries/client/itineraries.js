@@ -17,6 +17,8 @@ Template.itineraries.events({
 		const amount = $(".js-trv").val();
 		if (!isNumeric($(".js-ex").val())){
 			alert("Please enter a valid number!");
+		}else if (!($(".js-title").val())){
+			alert("Please enter a valid title!");
 		}else{
 			const expenses = Number($(".js-ex").val());
 			const desc= $(".js-descript").val();

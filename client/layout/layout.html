@@ -32,7 +32,9 @@
            </a>
          </li>
          <li role="presentation">
-          <a href="{{pathFor 'itineraries'}}">Add Your Own</a>
+          <a href="{{pathFor 'itineraries'}}">
+            <span class="glyphicon glyphicon-share" aria-hidden="true"></span><br>
+            Share!</a>
         </li>
         <li role="presentation">
           <a href="{{pathFor 'about'}}">About</a>
@@ -41,8 +43,10 @@
           <a href="{{pathFor 'comments'}}">Comments</a>
         </li>
         <li role="presentation">
-          <a href="{{pathFor 'settings'}}">Settings</a>
+          <a href="{{pathFor 'settings'}}"><span class=" glyphicon glyphicon-cog"></span><br>Settings</a>
         </li>
+
+
         <!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -77,6 +81,8 @@
         </li>          
         <li ><a href="{{pathFor 'userfavs'}}"><span class=" glyphicon glyphicon-heart"></span></a></li>        
         <li ><a href="#"><span class=" glyphicon glyphicon-tags"></span></a></li>
+        <li ><a href="{{pathFor 'messages'}}"><span class=" glyphicon glyphicon-envelope"></span></a></li>
+        <li ><a href="#"><span class=" glyphicon glyphicon-user"></span><span class=" glyphicon glyphicon-plus"></span></a></li>
       </ul>
 
 
