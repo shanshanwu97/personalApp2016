@@ -81,5 +81,6 @@ Template.input.events({
     index = inputs.findIndex(function(x) { return x.uniqid == uniqid; });
     inputs[index].value = $input.val().toLowerCase();
     Session.set('inputs', inputs);
+    console.log(Session.get('inputs'));
   }
 });
