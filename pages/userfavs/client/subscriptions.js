@@ -1,1 +1,1 @@
-Meteor.subscribe("theFavs", Meteor.userId());
+Meteor.subscribe("theFavs");

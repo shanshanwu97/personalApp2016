@@ -1,3 +1,3 @@
-Meteor.subscribe("theMessages", Meteor.userId());
+Meteor.subscribe("theMessages");
 Meteor.subscribe("userData");
-Meteor.subscribe("theMsgBuddies", Meteor.userId());
+Meteor.subscribe("theMsgBuddies");

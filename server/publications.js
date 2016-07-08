@@ -1,21 +1,21 @@
 Meteor.publish("theDestSearched", function(){return DestSearched.find();});
-Meteor.publish("theTrips", function(){
+Meteor.publish("theTrips", function(what){
 
-	return Trips.find();
+	return Trips.find(what);
 
 });
-Meteor.publish("theSettings", function(uid){
+Meteor.publish("theSettings", function(){
 	if (this.userId){
 
-				return Settings.find({user:uid});
+				return Settings.find({user:this.userId});
 	}else{
 		this.ready();
 	}
 });
-Meteor.publish("theFavs", function(uid){
+Meteor.publish("theFavs", function(){
 	if (this.userId){
 
-				return UserFavorites.find({user:uid});
+				return UserFavorites.find({user:this.userId});
 	}else{
 		this.ready();
 	}
@@ -28,16 +28,16 @@ Meteor.publish("userData", function () {
     this.ready();
   }
 });
-Meteor.publish("theMessages", function(uid){
+Meteor.publish("theMessages", function(){
 	if (this.userId){
 		return Messages.find({$or: [{user1: this.userId}, {user2:this.userId}]});
 	}else{
 		this.ready();
 	}
 })
-Meteor.publish("theMsgBuddies", function(uid){
+Meteor.publish("theMsgBuddies", function(){
 	if (this.userId){
-		return MsgBuddies.find({user:uid});
+		return MsgBuddies.find({user:this.userId});
 	}else{
 		this.ready();
 	}

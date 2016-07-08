@@ -2,15 +2,12 @@ Session.set("results", "0");
 Template.home.helpers({
 	searchdata: function(){return DestSearched.find({}, {sort:{searches:-1}});},
 	msg:function(){return Settings.findOne({user:Meteor.userId()})},
-	// preferloca:function(){
-	// 	var loc= Settings.findOne({user:Meteor.userId()}, {fields:{preferloc:1}});
-	// 	Session.set("prefer", loc&&loc.preferloc);
-	// 	//const loca=loc.preferloc
-	// 	return loc&&loc.preferloc;
-	// },
 	usersearch:function(){
 		//return Session.get("prefer");
 		return Trips.find();
+	},
+	userfavorites:function(){
+		return UserFavorites.find();
 	}
 })
 Template.home.events({
@@ -22,36 +19,12 @@ Template.home.events({
 		Meteor.call("tosearch", destination);
 		Router.go('searchresults');
 		
+	},
+	"click .js-deletefav ":function(event){
+		console.log("clicked on the x"); //debug
+		window.alert("You are about to delete this itinerary!");
+		var blog= UserFavorites.findOne({_id: this.user});
+		Meteor.call("removefav",blog);  //callback->this <--removes object created
 	}
-})
-// Template.home.onCreated(function(){
-// 	this.state= new ReactiveDict();
-// 	this.state.setDefault({
-// 		color:"bg-info",
-// 		counter: 0,
 
-// 	});
-// 	console.log("creating the template");
-// 	console.dir(this.state);
-// });
-// Template.home.helpers({
-// 	theColor: function(){
-// 		const instance = Template.instance();
-// 		return instance.state.get("color");
-// 	},
-// 	theCounter: function(){
-// 		const instance= Template.instance();
-// 		return instance.state.get("counter");
-// 	}
-// })
-// Template.home.events({
-// 	"change .js-color": function(event, instance){
-// 		console.log($(".js-color").val());
-// 		const newColor= instance.$(".js-color").val();
-// 		instance.state.set("color", newColor);
-// 	},
-// 	"click .js-pusher":function(event, instance){
-// 		const newCounter=instance.state.get("counter");
-// 		instance.state.set("counter", newCounter+1);
-// 	},
-// })
+})

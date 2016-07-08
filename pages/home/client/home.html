@@ -72,86 +72,52 @@
 <br><br>
 
 	<div class="row">
-		<div class="col-md-3  col-md-offset-0 col-xs-4 bg-info">
+		<div class="col-md-3 col-md-offset-0 bg-warning">
+      <h1> Popular Destinations </h1>
+    <div >
 			<h1>Paris, France</h1>
 			<img src="https://www.shoretrips.com/excursion-image/paris-france/private-transfer-from-paris-hotel-to-le-havre/118791_130625115936.jpg" width="100%" alt="Eiffel Tower"/>
 			<p>See More...</p>
 			<br>
+    </div>
+    <div >
+      <h1>Tokyo, Japan</h1>
+      <img src="http://travelblog.goaheadtours.com/wp-content/uploads/Mount-Fuji-Tokyo-Japan-Cherry-Blossoms.jpg" width="100%" alt="Tokyo Japan"/>
+      <p>See More...</p>
+      <br>
+
+    </div>
+    <div >
+      <h1>Los Angeles, US</h1>
+      <img src="https://www.choicehotels.com/cms/images/choice-hotels/citys/413541-Los-Angeles/413541-Los-Angeles.jpg" width="100%" alt="Tokyo Japan"/>
+      <p>See More...</p>
+      <br>
 		</div>
-    <div class="col-md-9  col-md-offset-0 col-xs-4 bg-info">
+    <div >
+      <h1>Sydney, Austrailia</h1>
+      <img src="http://collections.uiowa.edu/web-images/internationalPrograms/ofsa/3603/logistics/sydney%20opera%20hours.jpg" width="100%" alt="Tokyo Japan"/>
+      <p>See More...</p>
+      <br>
+
+    </div>
+    
+    
+  </div>
+    <div class="col-md-9  col-md-offset-0 bg-info">
       <h1>Your favorites</h1>
       <ul>
-    {{#each r in usersearch}}
+    {{#each r in userfavorites}}
     <li>
-    <div class="panel panel-success">
-      <div class="panel-body">
-          <a href="/showsearch/{{r._id}}"><h3>{{r.title}}</h3></a>
-        </div>
-         <div class="panel-footer">by {{r.createdBy}} on {{r.datecreated}}
-         </div>
-      </div>
+     {{> removeFav fav=r.favadded user=r._id}}
     </li>
     
     {{/each}}
   </ul>
       <br>
     </div>
-
-		<div class="col-md-3 col-md-offset-0 col-xs-4 bg-danger">
-			<h1>Tokyo, Japan</h1>
-			<img src="http://travelblog.goaheadtours.com/wp-content/uploads/Mount-Fuji-Tokyo-Japan-Cherry-Blossoms.jpg" width="100%" alt="Tokyo Japan"/>
-			<p>See More...</p>
-			<br>
-
-		</div>
-		<div class="col-md-3 col-md-offset-0 col-xs-4 bg-warning">
-			<h1>Los Angeles, US</h1>
-			<img src="https://www.choicehotels.com/cms/images/choice-hotels/citys/413541-Los-Angeles/413541-Los-Angeles.jpg" width="100%" alt="Tokyo Japan"/>
-			<p>See More...</p>
-			<br>
-
-		</div>
-		<div class="col-md-3 col-md-offset-0 col-xs-4 bg-success">
-			<h1>Sydney, Austrailia</h1>
-			<img src="http://collections.uiowa.edu/web-images/internationalPrograms/ofsa/3603/logistics/sydney%20opera%20hours.jpg" width="100%" alt="Tokyo Japan"/>
-			<p>See More...</p>
-			<br>
-
-		</div>
-
-
-	</div>
-	<div class="media">
-  		<div class="media-left">
-    		<a href="#">
-      			<img class="media-object" src="..." alt="...">
-    		</a>
-  		</div>
-  		<div class="media-body">
-    		<h4 class="media-heading">Media heading</h4>
-    	...
-  		</div>
 	</div>
 	<!-- <audio autoplay="" controls="" loop="" preload="">
  		<source src="audio/hi.mp3" type="audio/mpeg">
 	</audio> -->
 </div>
-</template>
-<template name = "showSearch">
-      <div class="row">
-    <div class="col-md-12  col-md-offset-0  bg-info">
-      <h1>{{title}}</h1>
-      <h4>{{createdBy}}</h4>
-      <h3><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{destination}}</h3>
-      <div class="panel panel-default">
-          <div class="panel-body">
-          <h4><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Arrival: {{arrival}}</h4>
-          <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Companions: {{amountOfTraveler}}</h4>
-          <h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Approximate Expense: {{expenses}}</h4>
-          </div>
-      </div>
-      <h4> Description: {{description}}</h4>
-      <br>
-    </div>
-  </div>
 </template>

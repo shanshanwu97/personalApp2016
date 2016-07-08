@@ -1,10 +1,19 @@
 <template name="itdisplay">
 	<div class="container">
+	<div class="jumbotron" style="background-image: url({{trips.image}});  background-size: 100% 100%;">
+	</div>
 	<div class="row">
 		<div class="col-md-12  col-md-offset-0  bg-info">
 			<h1>{{trips.title}}</h1>
-			<h4>{{trips.createdBy}}</h4>
-			<h3><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{trips.destination}}</h3>
+			<h4><a href="/showuser/{{trips.createdBy}}">{{trips.username}}</a></h4>
+			<h3><ul>
+				<div> 
+				{{#each d in trips.destination}}
+						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{d.value}}
+					
+				{{/each}}
+			</div>
+			</ul></h3>
 			<div class="panel panel-default">
   				<div class="panel-body">
     			<h4><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Arrival: {{trips.arrival}}</h4>
