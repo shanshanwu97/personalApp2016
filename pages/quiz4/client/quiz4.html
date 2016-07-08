@@ -1,0 +1,30 @@
+<template name="quiz4">
+	<h1>Quiz 4</h1>
+	by Shanshan Wu
+	<div class="row">
+		<div class="col-md-6  col-md-offset-0 bg-info">
+			<h2>Update your bio below</h2>
+			Name: <input id="name" class="js-name">
+			<br>Bio:<br>
+			<textarea class="js-bio" rows="5" cols="65"></textarea>
+			<button class=" js-update" >Update Bio</button>
+		</div>
+		<div class="col-md-6  col-md-offset-0  bg-warning">
+			<h2>Or select a bio to view</h2>
+			<ul>
+				{{#each b in seebios}}
+					<li>
+						<a href="/showbios/{{b._id}}">{{b.name}}</a>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</template>
+
+<template name="showBios">
+	<div class="jumbotron">
+		<h1>{{name}}</h1>
+		<p>{{bio}}</p>
+	</div>
+</template>

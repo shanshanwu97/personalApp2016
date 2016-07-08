@@ -12,6 +12,7 @@ Meteor.publish("theSettings", function(uid){
 		this.ready();
 	}
 });
+Meteor.publish("theBios", function(){return Bios.find();});
 
 
 
