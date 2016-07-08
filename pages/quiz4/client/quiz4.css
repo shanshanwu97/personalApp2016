@@ -1,5 +1,4 @@
-.button {
-  /*box-shadow: 0 4px 2px -2px gray;*/
+.button{
   background-color: LightGray;
-
+  border-radius:0;
 }
