@@ -1,1 +1,0 @@
-Meteor.subscribe("theTrips", {_id:Meteor.userId()});
